@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:metantei_conan/app_widgets/custom_app_bar.dart';
 import 'package:metantei_conan/features/character_details/data/model/character_details_model.dart';
 
 import '../../../../app_widgets/custom_background.dart';
@@ -73,46 +74,56 @@ class CharacterDetailsScreen extends StatelessWidget {
                       'value': bloc.character.aliases,
                     },
                   ];
-                  return ListView(children: [
-                    Container(
-                      margin: EdgeInsets.all( 8.r),
-                      height: MediaQueryHelper.height * .4,
-                      width: MediaQueryHelper.width,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              '${bloc.character.image}',
-                            ),
-                            fit: BoxFit.fill,
+                  return Column(
+                    children: [
+                      /* CustomAppBar(
+                        isHome: false,
+                        isPop: true,
+                      ), */
+                      Expanded(
+                        child: ListView(children: [
+                          Container(
+                            margin: EdgeInsets.all( 8.r),
+                            height: MediaQueryHelper.height * .4,
+                            width: MediaQueryHelper.width,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    '${bloc.character.image}',
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                                borderRadius: BorderRadius.circular(16.r)),
                           ),
-                          borderRadius: BorderRadius.circular(16.r)),
-                    ),
-                    Column(
-                      children: List.generate(
-                        details.length,
-                        (index) => Column(
-                          children: [
-                            ListTile(
-                              title: Text(
-                                '${details[index]['name']}:',
-                                style: Theme.of(context).textTheme.titleMedium,
+                          Column(
+                            children: List.generate(
+                              details.length,
+                              (index) => Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      '${details[index]['name']}:',
+                                      style: Theme.of(context).textTheme.titleMedium,
+                                    ),
+                                    subtitle: Text(
+                                      '${details[index]['value']}',
+                                      style: Theme.of(context).textTheme.bodyMedium,
+                                    ),
+                                  ),
+                                   Divider(
+                                color: Theme.of(context).colorScheme.primary,
+                                thickness: 1,endIndent: 10,
+                                indent: 10,
                               ),
-                              subtitle: Text(
-                                '${details[index]['value']}',
-                                style: Theme.of(context).textTheme.bodyMedium,
+                                ],
                               ),
-                            ),
-                             Divider(
-                          color: Theme.of(context).colorScheme.primary,
-                          thickness: 1,endIndent: 10,
-                          indent: 10,
-                        ),
-                          ],
-                        ),
-                       
-                      ), /* Text('${state.charactersState.englishName}'), */
-                    )
-                  ]);
+                             
+                            ), /* Text('${state.charactersState.englishName}'), */
+                          )
+                        ]),
+                      ),
+                    ],
+                  );
                 } else {
                   return Center(
                     child: Lottie.asset(

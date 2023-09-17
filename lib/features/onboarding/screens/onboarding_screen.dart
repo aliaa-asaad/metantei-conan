@@ -32,6 +32,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Image.asset(
                     AppImages.logo,
                     height: MediaQueryHelper.height * .17,
+                    width: MediaQueryHelper.width * .65,
+
                   ),
                   Image.asset(
                     AppImages.onBoarding1,

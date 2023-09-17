@@ -1,4 +1,4 @@
-part of 'all_characters_cubit_cubit.dart';
+part of 'all_characters_cubit.dart';
 
 @immutable
 sealed class AllCharactersState {}

@@ -18,7 +18,7 @@ class CharacterDetailsCubit extends Cubit<CharacterDetailsState> {
   CharacterDetailsRepo characterDetailsRepo = CharacterDetailsRepo();
   String name = '';
   CharacterDetailsModel character = CharacterDetailsModel();
-   List<Map<String, String?>> details = [
+   /* List<Map<String, String?>> details = [
                     {
                       'name': 'English Name',
                       'value': character.englishName,
@@ -63,7 +63,7 @@ class CharacterDetailsCubit extends Cubit<CharacterDetailsState> {
                       'name': 'Aliases',
                       'value': bloc.character.aliases,
                     },
-                  ];
+                  ]; */
                  
   void getCharacterDetailsCubit() async {
     emit(CharacterDetailsLoading());

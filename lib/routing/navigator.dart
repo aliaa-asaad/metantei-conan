@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:metantei_conan/features/character_details/presentation/screens/character_details_screen.dart';
 import 'package:metantei_conan/features/home/data/model/all_characters_repo.dart';
-import 'package:metantei_conan/features/home/data/view_model/cubit/all_characters_cubit_cubit.dart';
+import 'package:metantei_conan/features/home/data/view_model/cubit/all_characters_cubit.dart';
 import 'package:metantei_conan/routing/routes.dart';
 
 import '../features/character_details/data/view_model/cubit/character_details_cubit.dart';

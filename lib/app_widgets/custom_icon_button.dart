@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../utilities/images.dart';
+
 
 class CustomIconButton extends StatelessWidget {
-  final String icon;
+  final IconData icon;
   final bool isPop;
   final Function()? onPressed;
   const CustomIconButton({
     super.key,
-     this.icon=AppImages.search,
+   required  this.icon,
     this.onPressed,
     this.isPop = false,
   });
@@ -19,13 +19,13 @@ class CustomIconButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 4.0.r),
       child: CircleAvatar(
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         radius: 19.r,
         child: IconButton(
           onPressed: isPop ? Navigator.of(context).pop : onPressed,
           icon: isPop
-              ? const Icon(Icons.arrow_back,color: Colors.black,)
-              : Icon(Icons.search,color: Colors.black,),
+              ? const Icon(Icons.arrow_back,color: Colors.white,)
+              : Icon(icon,color: Colors.white,),
                   /* colorFilter: ColorFilter.mode(
                 Theme.of(context).colorScheme.primary,
                 BlendMode.srcIn), */

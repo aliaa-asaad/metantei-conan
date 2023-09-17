@@ -18,4 +18,13 @@ class AllCharactersCubit extends Cubit<AllCharactersState> {
       emit(AllCharactersError(e.toString()));
     }
   }
+  void getSearchedCharacter(
+    String searchedCharacter,
+  ) {
+    List<AllCharacters> searchResult = allCharacters.characters!
+        .where((character) =>
+            character.name!.toLowerCase().startsWith(searchedCharacter))
+        .toList();
+    emit(AllCharactersLoaded(searchResult));
+  }
 }
