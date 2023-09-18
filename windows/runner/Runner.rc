@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "metantei_conan" "\0"
+            VALUE "FileDescription", "detective_conan" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "metantei_conan" "\0"
+            VALUE "InternalName", "detective_conan" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "metantei_conan.exe" "\0"
-            VALUE "ProductName", "metantei_conan" "\0"
+            VALUE "OriginalFilename", "detective_conan.exe" "\0"
+            VALUE "ProductName", "detective_conan" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,6 +1,6 @@
+import 'package:detective_conan/app_widgets/custom_background.dart';
+import 'package:detective_conan/routing/navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:metantei_conan/app_widgets/custom_background.dart';
-import 'package:metantei_conan/routing/navigator.dart';
 
 import '../../routing/routes.dart';
 import '../../utilities/images.dart';
@@ -53,7 +53,6 @@ class _SplashScreenState extends State<SplashScreen>
               child: Image.asset(
                 AppImages.logo,
                 height: MediaQueryHelper.height * .3,
-                
                 width: MediaQueryHelper.width * .65,
               ),
             ),

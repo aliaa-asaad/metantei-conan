@@ -1,8 +1,7 @@
+import 'package:detective_conan/features/home/data/model/all_characters_model.dart';
+import 'package:detective_conan/routing/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:metantei_conan/features/home/data/model/all_characters_model.dart';
-import 'package:metantei_conan/routing/navigator.dart';
 
 import '../../../../routing/routes.dart';
 import '../../../../utilities/media_quary.dart';
@@ -65,13 +64,14 @@ class CustomGridView extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQueryHelper.height * .01,),
+                    height: MediaQueryHelper.height * .01,
+                  ),
                   Text(
-                      '${character[index].name}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
+                    '${character[index].name}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                 ],
               ) /* GridTile(
               child: Container(

@@ -1,4 +1,4 @@
-# metantei_conan
+# detective_conan
 
 A new Flutter project.
 

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:detective_conan/features/home/data/model/all_characters_model.dart';
+import 'package:detective_conan/features/home/data/model/all_characters_repo.dart';
 import 'package:meta/meta.dart';
-import 'package:metantei_conan/features/home/data/model/all_characters_model.dart';
-import 'package:metantei_conan/features/home/data/model/all_characters_repo.dart';
 
 part 'all_characters_cubit_state.dart';
 
@@ -18,6 +18,7 @@ class AllCharactersCubit extends Cubit<AllCharactersState> {
       emit(AllCharactersError(e.toString()));
     }
   }
+
   void getSearchedCharacter(
     String searchedCharacter,
   ) {

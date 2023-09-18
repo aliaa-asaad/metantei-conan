@@ -1,9 +1,8 @@
+import 'package:detective_conan/app_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:metantei_conan/app_widgets/custom_app_bar.dart';
-import 'package:metantei_conan/features/character_details/data/model/character_details_model.dart';
 
 import '../../../../app_widgets/custom_background.dart';
 import '../../../../utilities/images.dart';
@@ -76,14 +75,11 @@ class CharacterDetailsScreen extends StatelessWidget {
                   ];
                   return Column(
                     children: [
-                      /* CustomAppBar(
-                        isHome: false,
-                        isPop: true,
-                      ), */
+                      CustomAppBar(title: bloc.name.replaceFirst('_', ' ')),
                       Expanded(
                         child: ListView(children: [
                           Container(
-                            margin: EdgeInsets.all( 8.r),
+                            margin: EdgeInsets.all(8.r),
                             height: MediaQueryHelper.height * .4,
                             width: MediaQueryHelper.width,
                             decoration: BoxDecoration(
@@ -103,21 +99,26 @@ class CharacterDetailsScreen extends StatelessWidget {
                                   ListTile(
                                     title: Text(
                                       '${details[index]['name']}:',
-                                      style: Theme.of(context).textTheme.titleMedium,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium,
                                     ),
                                     subtitle: Text(
                                       '${details[index]['value']}',
-                                      style: Theme.of(context).textTheme.bodyMedium,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
                                     ),
                                   ),
-                                   Divider(
-                                color: Theme.of(context).colorScheme.primary,
-                                thickness: 1,endIndent: 10,
-                                indent: 10,
-                              ),
+                                  Divider(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    thickness: 1,
+                                    endIndent: 10,
+                                    indent: 10,
+                                  ),
                                 ],
                               ),
-                             
                             ), /* Text('${state.charactersState.englishName}'), */
                           )
                         ]),

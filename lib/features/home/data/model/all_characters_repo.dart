@@ -1,6 +1,6 @@
+import 'package:detective_conan/configurations/end_points.dart';
+import 'package:detective_conan/network/web_services.dart';
 import 'package:dio/dio.dart';
-import 'package:metantei_conan/configurations/end_points.dart';
-import 'package:metantei_conan/network/web_services.dart';
 
 import 'all_characters_model.dart';
 

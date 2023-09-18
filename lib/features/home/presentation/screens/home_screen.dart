@@ -1,12 +1,12 @@
+import 'package:detective_conan/app_widgets/custom_app_bar.dart';
+import 'package:detective_conan/app_widgets/custom_background.dart';
+import 'package:detective_conan/features/home/data/model/all_characters_model.dart';
+import 'package:detective_conan/features/home/data/view_model/cubit/all_characters_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:metantei_conan/app_widgets/custom_app_bar.dart';
-import 'package:metantei_conan/app_widgets/custom_background.dart';
-import 'package:metantei_conan/features/home/data/model/all_characters_model.dart';
-import 'package:metantei_conan/features/home/data/view_model/cubit/all_characters_cubit.dart';
-
 import 'package:lottie/lottie.dart';
+
 import '../../../../utilities/images.dart';
 import '../../../../utilities/media_quary.dart';
 import '../widgets/custom_grid_view.dart';
@@ -34,8 +34,6 @@ class HomeScreen extends StatelessWidget {
                       onChanged: (value) {
                         BlocProvider.of<AllCharactersCubit>(context)
                             .getSearchedCharacter(value);
-
-                        
                       },
                     ),
                     Expanded(child: CustomGridView(character: allCharacters)),

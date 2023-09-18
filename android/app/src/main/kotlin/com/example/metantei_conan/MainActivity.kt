@@ -1,4 +1,4 @@
-package com.example.metantei_conan
+package com.example.detective_conan
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,9 +1,9 @@
+import 'package:detective_conan/features/character_details/presentation/screens/character_details_screen.dart';
+import 'package:detective_conan/features/home/data/model/all_characters_repo.dart';
+import 'package:detective_conan/features/home/data/view_model/cubit/all_characters_cubit.dart';
+import 'package:detective_conan/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:metantei_conan/features/character_details/presentation/screens/character_details_screen.dart';
-import 'package:metantei_conan/features/home/data/model/all_characters_repo.dart';
-import 'package:metantei_conan/features/home/data/view_model/cubit/all_characters_cubit.dart';
-import 'package:metantei_conan/routing/routes.dart';
 
 import '../features/character_details/data/view_model/cubit/character_details_cubit.dart';
 import '../features/home/presentation/screens/home_screen.dart';
@@ -31,13 +31,13 @@ class AppRoutes {
       case Routes.home:
         return AppRoutes.aniamtedNavigation(
             screen: MultiBlocProvider(providers: [
-              BlocProvider(
-          create: (context) =>
-              CharacterDetailsCubit(settings.arguments as String)),
+          BlocProvider(
+              create: (context) =>
+                  CharacterDetailsCubit(settings.arguments as String)),
           BlocProvider(
               create: (context) =>
                   AllCharactersCubit()..getAllCharactersCubit())
-        ], child: HomeScreen()));
+        ], child: const HomeScreen()));
       /* BlocProvider(
               //1
               //دي اول طريقة باكول فيها الميثود من خلال انه هيكريت الاوبجكت اول ما اروح للاسكرين وبعدها هينفذ الميثود 
@@ -49,7 +49,7 @@ class AppRoutes {
             screen: BlocProvider(
           create: (context) =>
               CharacterDetailsCubit(settings.arguments as String),
-          child: CharacterDetailsScreen(),
+          child: const CharacterDetailsScreen(),
         ));
       default:
         return AppRoutes.aniamtedNavigation(

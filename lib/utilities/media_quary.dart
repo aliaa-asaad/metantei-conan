@@ -1,5 +1,5 @@
+import 'package:detective_conan/routing/navigator.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:metantei_conan/routing/navigator.dart';
 
 abstract class MediaQueryHelper {
   static double width =

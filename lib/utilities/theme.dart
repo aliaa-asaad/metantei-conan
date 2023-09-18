@@ -15,20 +15,10 @@ class AppTheme {
         color: Colors.black, fontSize: 13.sp,
       ),
       titleMedium: TextStyle(
-          color: Color(0xff283255),
-          fontSize: 20.sp,
+          color: const Color(0xff283255),
+          fontSize: 15.sp,
           fontWeight: FontWeight.bold),
-      titleLarge: TextStyle(),
-      //////////////
-      displayMedium: TextStyle(),
-      displayLarge: TextStyle(),
-      displaySmall: TextStyle(),
-      /////////////////////
-      headlineMedium: TextStyle(),
-      headlineSmall: TextStyle(),
-      headlineLarge: TextStyle(),
-      /////////////////
-      bodyLarge: TextStyle(),
+     
       bodySmall: TextStyle(
         color: Colors.white,
         fontSize: 15.sp,
@@ -37,14 +27,11 @@ class AppTheme {
         color: Colors.white,
         fontSize: 20.sp,
       ),
-      ////////////////
-      labelSmall: TextStyle(),
-      labelLarge: TextStyle(),
       labelMedium: TextStyle(
           fontWeight: FontWeight.bold,
           color: Colors.white,
           fontSize: 25.sp,
-          shadows: [
+          shadows: const [
             Shadow(color: Colors.black, blurRadius: 2, offset: Offset(1, 1))
           ]),
     ),

@@ -1,5 +1,5 @@
+import 'package:detective_conan/utilities/images.dart';
 import 'package:flutter/material.dart';
-import 'package:metantei_conan/utilities/images.dart';
 
 import '../utilities/media_quary.dart';
 import 'custom_icon_button.dart';
@@ -8,12 +8,9 @@ class CustomAppBar extends StatefulWidget {
   final bool isHome;
   final String title;
 
-  final Function(String) onChanged;
+  final Function(String)? onChanged;
   const CustomAppBar(
-      {super.key,
-      this.isHome = false,
-      this.title = 'home',
-      required this.onChanged});
+      {super.key, this.isHome = false, this.title = 'home', this.onChanged});
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
@@ -27,17 +24,18 @@ class _CustomAppBarState extends State<CustomAppBar> {
         ? Center(
             child: Row(
               children: [
-                AnimatedOpacity(
-                    duration: const Duration(milliseconds: 700),
-                    opacity: isSearch ? 0 : 1,
-                    child: isSearch
-                        ? Container()
-                        : Image.asset(
-                            AppImages.logo,
-                            /* height: MediaQueryHelper.height * .096,
-                          width: MediaQueryHelper.width * .196, */
-                            scale: 4.5,
-                          )),
+                AnimatedCrossFade(
+                  alignment: Alignment.center,
+                  duration: const Duration(milliseconds: 700),
+                  firstChild: Container(),
+                  secondChild: Image.asset(
+                    AppImages.logo,
+                    scale: 4.5,
+                  ),
+                  crossFadeState: isSearch
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                ),
                 const Spacer(),
                 AnimatedContainer(
                   margin: const EdgeInsets.only(bottom: 8.0),
@@ -48,25 +46,26 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   width: isSearch
                       ? MediaQueryHelper.width * .93
                       : MediaQueryHelper.width * .11,
-                  child: isSearch
-                      ? AnimatedOpacity(
+                  child: /*  isSearch
+                      ?  */
+                      AnimatedCrossFade(
+                    duration: const Duration(milliseconds: 700),
+                    firstChild: Row(
+                      children: [
+                        AnimatedOpacity(
                           duration: const Duration(milliseconds: 700),
-                          opacity: isSearch ? 1 : 0,
-                          child: Row(
-                            children: [
-                              AnimatedOpacity(
-                                duration: const Duration(milliseconds: 700),
-                                opacity: isSearch ? 1 : 0,
-                                child: CustomIconButton(
-                                  icon: Icons.arrow_back,
-                                  onPressed: () {
-                                    setState(() {
-                                      isSearch = !isSearch;
-                                    });
-                                  },
-                                ),
-                              ),
-                              Expanded(
+                          opacity: 1,
+                          child: CustomIconButton(
+                            icon: Icons.arrow_back,
+                            onPressed: () {
+                              setState(() {
+                                isSearch = !isSearch;
+                              });
+                            },
+                          ),
+                        ),
+                        isSearch
+                            ? Expanded(
                                 child: AnimatedOpacity(
                                   duration: const Duration(milliseconds: 700),
                                   opacity: isSearch ? 1 : 0,
@@ -87,10 +86,67 @@ class _CustomAppBarState extends State<CustomAppBar> {
                                       onChanged: widget.onChanged),
                                 ),
                               )
-                            ],
+                            : Container()
+                      ],
+                    ),
+                    secondChild: CustomIconButton(
+                      icon: Icons.search,
+                      onPressed: () {
+                        setState(() {
+                          isSearch = !isSearch;
+                        });
+                      },
+                    ),
+                    crossFadeState: isSearch
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                  ),
+                  /*  AnimatedOpacity(
+                      duration: const Duration(milliseconds: 700),
+                      opacity: isSearch ? 1 : 0,
+                      child: Row(
+                        children: [
+                          AnimatedOpacity(
+                            duration: const Duration(milliseconds: 700),
+                            opacity: 1,
+                            child: CustomIconButton(
+                              icon: isSearch ? Icons.arrow_back : Icons.search,
+                              onPressed: () {
+                                setState(() {
+                                  isSearch = !isSearch;
+                                });
+                              },
+                            ),
                           ),
-                        )
-                      : AnimatedOpacity(
+                          isSearch
+                              ? Expanded(
+                                  child: AnimatedOpacity(
+                                    duration: const Duration(milliseconds: 700),
+                                    opacity: isSearch ? 1 : 0,
+                                    child: TextFormField(
+                                        cursorColor: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                        decoration: const InputDecoration(
+                                          hintText: 'Find a character...',
+                                          border: InputBorder.none,
+                                          hintStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18),
+                                        ),
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            fontSize: 18),
+                                        onChanged: widget.onChanged),
+                                  ),
+                                )
+                              : Container()
+                        ],
+                      ),
+                    )
+                     : AnimatedOpacity(
                           duration: const Duration(milliseconds: 700),
                           opacity: isSearch ? 0 : 1,
                           child: CustomIconButton(
@@ -101,19 +157,15 @@ class _CustomAppBarState extends State<CustomAppBar> {
                               });
                             },
                           ),
-                        ),
+                        ), */
                 ),
               ],
             ),
           )
         : Row(children: [
-            IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context),
-            ),
+            const CustomIconButton(icon: Icons.arrow_back, isPop: true),
             Text(widget.title),
             const Spacer(),
-            const CustomIconButton(icon: Icons.arrow_back),
           ]);
   }
 }

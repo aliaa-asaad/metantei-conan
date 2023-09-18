@@ -1,9 +1,9 @@
+import 'package:detective_conan/routing/navigator.dart';
+import 'package:detective_conan/routing/routes.dart';
+import 'package:detective_conan/utilities/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:metantei_conan/features/splash/splash_screen.dart';
-import 'package:metantei_conan/routing/navigator.dart';
-import 'package:metantei_conan/routing/routes.dart';
-import 'package:metantei_conan/utilities/theme.dart';
+
 void main() {
   runApp(ScreenUtilInit(
       minTextAdapt: true,
@@ -18,14 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Metantie Conan',
+      title: 'Detective Conan',
       theme: AppTheme().lightTheme,
       onGenerateRoute: AppRoutes.onGenerateRoute,
-       initialRoute: Routes.splash,
+      initialRoute: Routes.splash,
       navigatorKey: AppRoutes.navigatorState,
       navigatorObservers: [AppRoutes.routeObserver],
-      scaffoldMessengerKey: AppRoutes.scaffoldState,
-      
+      scaffoldMessengerKey: AppRoutes.scaffoldState,debugShowCheckedModeBanner: false,
       
     );
   }
